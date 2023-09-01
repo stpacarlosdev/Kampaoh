@@ -2,6 +2,12 @@
 
 ![KAMPAOH](https://es.kampaoh.com/wp-content/uploads/2022/10/logo-kampaoh.png)
 
+## Node
+
+Versión de `NODE` utilizada para su desarrollo.
+
+`v14.20.0`
+
 ## Instalación
 
 `npm install`
