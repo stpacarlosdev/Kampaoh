@@ -1,0 +1,27 @@
+.header__container{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    font-size: 30px;
+}
+
+.header__img{
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.header__kill_cat{
+    display: flex;
+}
+
+.header__fav_user{
+    display: flex;
+}
+
+.header__back-container{
+    position: absolute;
+    left: 20px;
+    top: 0px;
+}

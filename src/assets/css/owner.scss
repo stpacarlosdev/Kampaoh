@@ -1,0 +1,66 @@
+.container__table_owner{
+    border: 2px solid black;
+    width: 100%;
+    text-align: center;    
+    height: 365px;
+    overflow: auto;
+}   
+.container__owner{
+    width: 50%;
+    display: flex;
+    text-align: left;    
+    justify-content: center;
+    align-content: center;
+    margin: 0 auto;    
+}
+
+.row__owner{
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.btn__loadMore{    
+    width: 10vw;
+    padding: 1%;
+    height: auto;
+    border: 1px solid black;    
+    margin:0 auto;
+    margin-top: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn__add_fav{
+    position: absolute;
+    bottom: 20px;
+    padding: 2%;
+    border: 1px solid black;
+    border-radius: 20px;
+    left: 25%;
+    cursor: pointer;
+    text-align: center;
+}
+
+.container__selectedUser{
+    position: relative;
+    border: 1px solid black;
+    margin-left: 20px;
+    width: 30%;
+    padding: 1%;
+}
+
+.container__input{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.input__search{
+    margin: 0 auto;
+    width: 50%;
+    height: 3vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    font-size: 14px;
+}

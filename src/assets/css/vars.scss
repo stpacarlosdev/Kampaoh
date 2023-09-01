@@ -1,0 +1,46 @@
+
+@font-face {
+  font-family: "Roboto Regular";
+  src: url("../Fonts/Roboto-Regular.ttf");
+}
+
+/******* Variables definition *******/
+$roboto-regular: "Roboto Regular", sans-serif;
+
+$main-font-size: 14px;
+
+$font-color: black;
+
+
+/* Media queries */
+@mixin media($media) {
+  @if $media == xs {
+    @media (max-width: 480px) {
+      @content;
+    }
+  }
+
+  @if $media == md {
+    @media (min-width: 481px) {
+      @content;
+    }
+  }
+
+  @if $media == lg {
+    @media (min-width: 1024px) {
+      @content;
+    }
+  }
+
+  @if $media == lg-full {
+    @media (min-width: 1280px) {
+      @content;
+    }
+  }
+
+  @if $media == full {
+    @media (min-width: 1920px) {
+      @content;
+    }
+  }
+}

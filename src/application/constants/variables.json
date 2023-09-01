@@ -1,0 +1,17 @@
+{
+  "local": {
+    "baseUrl": "",
+    "apiUrl": "https://gorest.co.in/public/v2",
+    "authToken": "Bearer 9d04f3f838b252fd5dbd4050c2fc77f842dc613da583529f6c3de3ca22541bbe"
+  },
+  "dev": {
+    "baseUrl": "",
+    "apiUrl": "https://gorest.co.in/public/v2",
+    "authToken": "Bearer 9d04f3f838b252fd5dbd4050c2fc77f842dc613da583529f6c3de3ca22541bbe"
+  },
+  "prod": {
+    "baseUrl": "",
+    "apiUrl": "https://gorest.co.in/public/v2",
+    "authToken": "Bearer 9d04f3f838b252fd5dbd4050c2fc77f842dc613da583529f6c3de3ca22541bbe"
+  }
+}
