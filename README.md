@@ -1,6 +1,6 @@
 # Repositorio para Prueba Técnica React - Frontend || KAMPAOH
 
-(https://es.kampaoh.com/wp-content/uploads/2022/10/logo-kampaoh.png)
+![KAMPAOH](https://es.kampaoh.com/wp-content/uploads/2022/10/logo-kampaoh.png)
 
 ## Instalación
 
