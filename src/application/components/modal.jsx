@@ -1,5 +1,5 @@
 import React from "react";
-import { map } from "ramda";
+import { length, map } from "ramda";
 
 const Modal = (props) => {
   const { dataUsers, show, setLocalShow } = props;
@@ -10,7 +10,7 @@ const Modal = (props) => {
       <div className="modal__container" onClick={() => setLocalShow(false)}>
         <div className="modal__contain_user">
           <p>{"FAVORITOS"}</p>
-          {dataUsers &&
+          {dataUsers && length(dataUsers) > 0 ? (
             map(
               (user) => (
                 <div key={user?.id} className="row__owner">
@@ -19,7 +19,10 @@ const Modal = (props) => {
                 </div>
               ),
               dataUsers
-            )}
+            )
+          ) : (
+            <>{"🤷‍♂️ NO TIENES FAVORITOS 🤷‍♂️"}</>
+          )}
         </div>
       </div>
     )

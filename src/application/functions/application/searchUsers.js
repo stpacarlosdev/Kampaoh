@@ -1,11 +1,12 @@
 import { API_URL } from "application/constants/app-constants";
 import getHeaders from "./getHeaders";
 
-export default function searchUsers(setData, auxData, countPerPage, terms) {
+export default function searchUsers(setData, auxData, countPerPage, terms, handleKillCat) {
   const config = {
     headers: getHeaders(),
   };
 
+  handleKillCat();
   if (terms !== "") {
     fetch(`${API_URL}/users?name=${terms}`, config)
       .then((response) => response.json())

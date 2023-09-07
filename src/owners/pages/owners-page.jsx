@@ -5,27 +5,30 @@ import Header from "application/components/header";
 import Modal from "application/components/modal";
 import Loading from "application/components/loading";
 
-const OwnerPage = () => {
+const OwnerPage = (props) => {
   const userFavStorage = JSON.parse(localStorage.getItem("userFav")) || [];
+  const requestKill = JSON.parse(localStorage.getItem("catKill")) || 0;
+  const { history } = props;
   const [dataUser, setDataUser] = useState(null);
   const [selectedUser, setSelectedUser] = useState(null);
   const [pageRequest, setPageRequest] = useState(0);
-  const [userFavs, setUserFavs] = useState(userFavStorage ? userFavStorage : []);
+  const [userFavs, setUserFavs] = useState(userFavStorage || []);
+  const [catDied, setCatDied] = useState(requestKill || 0);
   const [localShow, setLocalShow] = useState(false);
 
   useEffect(() => {
-    searchUsers(setDataUser, [], pageRequest, "");
+    searchUsers(setDataUser, [], pageRequest, "", handleKillCat);
   }, []);
 
   const loadMore = () => {
     setPageRequest(pageRequest + 1);
-    searchUsers(setDataUser, dataUser, pageRequest + 1, "");
+    searchUsers(setDataUser, dataUser, pageRequest + 1, "", handleKillCat);
   };
 
   const handleSearchUser = (e) => {
     const terms = e ? e.target?.value : "";
-    if (terms.length > 2) searchUsers(setDataUser, [], 0, terms);
-    if (terms.length === 0) searchUsers(setDataUser, [], 0, terms);
+    if (terms.length > 2) searchUsers(setDataUser, [], 0, terms, handleKillCat);
+    if (terms.length === 0) searchUsers(setDataUser, [], 0, terms, handleKillCat);
   };
 
   const addFavUser = (selectedUser) => {
@@ -35,15 +38,35 @@ const OwnerPage = () => {
     setUserFavs(auxUserFavs);
   };
 
+  const handleKillCat = () => {
+    const sumCatDied = catDied + 1;
+    localStorage.setItem("catKill", sumCatDied);
+    setCatDied(sumCatDied);
+  };
+
+  const handleReviveCats = () => {
+    localStorage.setItem("catKill", 0);
+    setCatDied(0);
+  };
+
   return (
     <Fragment>
-      <Header title={"OWNERS"} back={true} userFavs={userFavs} dataUser={dataUser} showModal={setLocalShow} />
+      <Header
+        title={"OWNERS"}
+        history={history}
+        back={true}
+        userFavs={userFavs}
+        requestKill={catDied}
+        dataUser={dataUser}
+        showModal={setLocalShow}
+        handleReviveCats={handleReviveCats}
+      />
       <Modal dataUsers={userFavStorage} show={localShow} setLocalShow={setLocalShow} />
-      {/* {SEARCH} */}
+      {/* SEARCH */}
       <div className="container__input">
         <input className="input__search" type="search" onChange={(e) => handleSearchUser(e)} placeholder="BUSCAR" />
       </div>
-      {/* User list */}
+      {/* USER LIST */}
       <div className="container__owner">
         <div className="container__table_owner">
           {dataUser ? (
@@ -60,7 +83,7 @@ const OwnerPage = () => {
             <Loading />
           )}
         </div>
-        {/* User detail */}
+        {/* USER DETAIL */}
         {selectedUser && (
           <div className="container__selectedUser">
             <div>{`NOMBRE:  ${selectedUser?.name}`}</div>
